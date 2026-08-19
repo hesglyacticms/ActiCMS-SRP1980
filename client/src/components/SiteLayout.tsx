@@ -16,7 +16,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
     <header className="masthead">
       <div className="masthead-inner">
         <Link href="/" className="brand-lockup" onClick={() => setOpen(false)}>
-          <div className="seal-small"><span>★</span><i /></div>
+          <div className="seal-small"><span></span><i /></div>
           <div><div className="brand-name">SPRINGFIELD</div><div className="brand-sub">ROLEPLAY · EST. 1980</div></div>
         </Link>
         <button className="mobile-menu" aria-label="Toggle navigation" onClick={() => setOpen(!open)}>{open ? <X size={21} /> : <Menu size={21} />}</button>
