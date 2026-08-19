@@ -12,12 +12,12 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const [location] = useLocation();
   return <div className="site-shell">
-    <div className="top-strip"><span>SPRINGFIELD COUNTY · TOWN OFFICE</span><span className="top-strip-right">1980 · ROBLOX ERLC COMMUNITY</span></div>
+    <div className="top-strip"><span>Made by ActiCMS</span><span className="top-strip-right">ROBLOX ERLC COMMUNITIES</span></div>
     <header className="masthead">
       <div className="masthead-inner">
         <Link href="/" className="brand-lockup" onClick={() => setOpen(false)}>
           <div className="seal-small"><span>★</span><i /></div>
-          <div><div className="brand-name">SPRINGFIELD</div><div className="brand-sub">ROLEPLAY COMMUNITY · EST. 1980</div></div>
+          <div><div className="brand-name">SPRINGFIELD</div><div className="brand-sub">ROLEPLAY · EST. 1980</div></div>
         </Link>
         <button className="mobile-menu" aria-label="Toggle navigation" onClick={() => setOpen(!open)}>{open ? <X size={21} /> : <Menu size={21} />}</button>
         <nav className={`main-nav ${open ? 'is-open' : ''}`} aria-label="Primary navigation">
