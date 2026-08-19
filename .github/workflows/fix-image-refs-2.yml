@@ -1,0 +1,51 @@
+name: Repair exact supplied image references
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  repair-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Replace all known broken paths
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('client/src/pages/SitePages.tsx')
+          text = path.read_text()
+          replacements = {
+              '/manus-storage/erlc-hero_39299f95.png': '/manus-storage/erlc-hero_41f8c6c0.png',
+              '/manus-storage/erlc-hero_d3f135e2.png': '/manus-storage/erlc-hero_41f8c6c0.png',
+              '/manus-storage/bridge_c159a2ce.png': '/manus-storage/bridge_4b250610.png',
+              '/manus-storage/bridge_24274206.png': '/manus-storage/bridge_4b250610.png',
+              '/manus-storage/high-rock-park_88a5555a.png': '/manus-storage/high-rock-park_957d9291.png',
+              '/manus-storage/high-rock-park_b8eb23c3.png': '/manus-storage/high-rock-park_957d9291.png',
+              '/manus-storage/park-ranger-vehicles_05698294.png': '/manus-storage/park-ranger-vehicles_3bab4b17.png',
+              '/manus-storage/park-ranger-vehicles_0aa45206.png': '/manus-storage/park-ranger-vehicles_3bab4b17.png',
+              '/manus-storage/night-police_0094bbea.png': '/manus-storage/night-police_c237eb32.png',
+              '/manus-storage/night-police_1f808889.png': '/manus-storage/night-police_c237eb32.png',
+          }
+          for old, new in replacements.items():
+              text = text.replace(old, new)
+          path.write_text(text)
+          PY
+
+      - name: Commit exact image repair and remove temporary workflow
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          rm .github/workflows/fix-image-refs-2.yml
+          git add client/src/pages/SitePages.tsx .github/workflows/fix-image-refs-2.yml
+          if git diff --cached --quiet; then
+            echo 'No image changes required.'
+            exit 0
+          fi
+          git commit -m 'Use exact supplied Roblox ERLC image assets'
+          git push
