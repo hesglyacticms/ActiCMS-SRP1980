@@ -12,23 +12,32 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const [location] = useLocation();
   return <div className="site-shell">
-    <div className="top-strip"><span>Made by ActiCMS</span><span className="top-strip-right">ROBLOX ERLC COMMUNITIES</span></div>
+    <div className="top-strip"><span>SPRINGFIELD COUNTY · TOWN OFFICE</span><span className="top-strip-right">1980 · ROBLOX ERLC COMMUNITY</span></div>
     <header className="masthead">
       <div className="masthead-inner">
         <Link href="/" className="brand-lockup" onClick={() => setOpen(false)}>
-          <div className="seal-small"><span></span><i /></div>
-          <div><div className="brand-name">SPRINGFIELD</div><div className="brand-sub">ROLEPLAY · EST. 1980</div></div>
+          <div className="seal-small"><span>★</span><i /></div>
+          <div><div className="brand-name">SPRINGFIELD</div><div className="brand-sub">ROLEPLAY COMMUNITY · EST. 1980</div></div>
         </Link>
-        <button className="mobile-menu" aria-label="Toggle navigation" onClick={() => setOpen(!open)}>{open ? <X size={21} /> : <Menu size={21} />}</button>
-        <nav className={`main-nav ${open ? 'is-open' : ''}`} aria-label="Primary navigation">
-          {links.map(([label, href]) => <Link key={href} href={href} onClick={() => setOpen(false)} className={location === href ? 'active' : ''}>{label}</Link>)}
+        <button className="mobile-menu" type="button" aria-label={open ? 'Close navigation' : 'Open navigation'} aria-expanded={open} aria-controls="primary-navigation" onClick={() => setOpen(!open)}>{open ? <X size={21} /> : <Menu size={21} />}</button>
+        <nav id="primary-navigation" className={`main-nav ${open ? 'is-open' : ''}`} aria-label="Primary navigation">
+          {links.map(([label, href]) => <Link key={href} href={href} onClick={() => setOpen(false)} className={location === href ? 'active' : ''} aria-current={location === href ? 'page' : undefined}>{label}</Link>)}
           <a href={siteSettings.discordUrl} target="_blank" rel="noreferrer" className="discord-link">DISCORD <ExternalLink size={12} /></a>
         </nav>
       </div>
     </header>
-    <div className="status-bar"><div><span className="status-dot" /> ROBLOX ERLC SERVER CHECK</div><div className="status-unavailable"><Radio size={13} /> LIVE CHECK NOT CONNECTED · STATUS PENDING</div></div>
-    <main>{children}</main>
-    <footer className="footer"><div className="footer-inner"><div><div className="footer-brand"><div className="seal-small"><span>★</span><i /></div><div className="footer-title">SPRINGFIELD</div></div><p>1980's Springfield RP is a Roblox ERLC community where organized departments, civilian life, and regular sessions all share the same county.</p></div><div className="footer-meta"><span>SPRINGFIELD COUNTY</span><span>SPRINGFIELD COUNTY · 1980</span><span><ShieldCheck size={13} /> KEEPING THE COUNTY MOVING</span></div></div><div className="footer-bottom">© 1980's Springfield RP · A community website for a Roblox experience. Not affiliated with Roblox Corporation.</div></footer>
+    <aside className="status-bar" aria-label="Server status">
+      <div>ROBLOX ERLC SERVER CHECK</div>
+      <div className="status-unavailable"><Radio size={13} /> LIVE CHECK NOT CONNECTED · STATUS PENDING</div>
+    </aside>
+    <main id="main-content">{children}</main>
+    <footer className="footer" aria-label="Site information">
+      <div className="footer-inner">
+        <div><div className="footer-brand"><div className="seal-small"><span>★</span><i /></div><div className="footer-title">SPRINGFIELD</div></div><p>1980's Springfield RP is a Roblox ERLC community where organized departments, civilian life, and regular sessions all share the same county.</p></div>
+        <div className="footer-meta"><span>SPRINGFIELD COUNTY</span><span>SPRINGFIELD COUNTY · 1980</span><span><ShieldCheck size={13} /> KEEPING THE COUNTY MOVING</span></div>
+      </div>
+      <div className="footer-bottom">© 1980's Springfield RP · A community website for a Roblox experience. Not affiliated with Roblox Corporation.</div>
+    </footer>
   </div>;
 }
 
