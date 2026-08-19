@@ -12,12 +12,12 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const [location] = useLocation();
   return <div className="site-shell">
-    <div className="top-strip"><span>SPRINGFIELD COUNTY PUBLIC INFORMATION OFFICE</span><span className="top-strip-right">ISSUE 08 · 1980 · ROBLOX ERLC EXPERIENCE</span></div>
+    <div className="top-strip"><span>SPRINGFIELD COUNTY · TOWN OFFICE</span><span className="top-strip-right">1980 · ROBLOX ERLC COMMUNITY</span></div>
     <header className="masthead">
       <div className="masthead-inner">
         <Link href="/" className="brand-lockup" onClick={() => setOpen(false)}>
           <div className="seal-small"><span>★</span><i /></div>
-          <div><div className="brand-name">SPRINGFIELD</div><div className="brand-sub">ROLEPLAY ADMINISTRATION · EST. 1980</div></div>
+          <div><div className="brand-name">SPRINGFIELD</div><div className="brand-sub">ROLEPLAY COMMUNITY · EST. 1980</div></div>
         </Link>
         <button className="mobile-menu" aria-label="Toggle navigation" onClick={() => setOpen(!open)}>{open ? <X size={21} /> : <Menu size={21} />}</button>
         <nav className={`main-nav ${open ? 'is-open' : ''}`} aria-label="Primary navigation">
@@ -26,14 +26,14 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
         </nav>
       </div>
     </header>
-    <div className="status-bar"><div><span className="status-dot" /> ROBLOX ERLC EXPERIENCE STATUS</div><div className="status-unavailable"><Radio size={13} /> LIVE CONNECTION NOT CONFIGURED · LAST CHECK PENDING</div></div>
+    <div className="status-bar"><div><span className="status-dot" /> ROBLOX ERLC SERVER CHECK</div><div className="status-unavailable"><Radio size={13} /> LIVE CHECK NOT CONNECTED · STATUS PENDING</div></div>
     <main>{children}</main>
-    <footer className="footer"><div className="footer-inner"><div><div className="footer-brand"><div className="seal-small"><span>★</span><i /></div><div className="footer-title">SPRINGFIELD</div></div><p>1980's Springfield RP is a structured Roblox ERLC community built around period-authentic roleplay, organized departments, and a town with room for every story.</p></div><div className="footer-meta"><span>SPRINGFIELD COUNTY</span><span>PUBLIC RECORD · 1980</span><span><ShieldCheck size={13} /> COMMUNITY OPERATIONS</span></div></div><div className="footer-bottom">© 1980's Springfield RP · This is a community website for a Roblox experience. Not affiliated with Roblox Corporation.</div></footer>
+    <footer className="footer"><div className="footer-inner"><div><div className="footer-brand"><div className="seal-small"><span>★</span><i /></div><div className="footer-title">SPRINGFIELD</div></div><p>1980's Springfield RP is a Roblox ERLC community where organized departments, civilian life, and regular sessions all share the same county.</p></div><div className="footer-meta"><span>SPRINGFIELD COUNTY</span><span>SPRINGFIELD COUNTY · 1980</span><span><ShieldCheck size={13} /> KEEPING THE COUNTY MOVING</span></div></div><div className="footer-bottom">© 1980's Springfield RP · A community website for a Roblox experience. Not affiliated with Roblox Corporation.</div></footer>
   </div>;
 }
 
 export function SectionHeading({ kicker, title, intro }: { kicker: string; title: string; intro?: string }) {
-  return <div className="section-heading"><div className="section-heading-top"><div className="section-kicker">{kicker}</div><div className="section-seal" aria-hidden="true"><span>★</span></div></div><h1>{title}</h1>{intro && <p>{intro}</p>}<div className="section-record-line"><span>FILED · SPRINGFIELD COUNTY</span><span>PUBLIC INFORMATION RECORD</span></div></div>;
+  return <div className="section-heading"><div className="section-heading-top"><div className="section-kicker">{kicker}</div><div className="section-seal" aria-hidden="true"><span>★</span></div></div><h1>{title}</h1>{intro && <p>{intro}</p>}<div className="section-record-line"><span>SPRINGFIELD COUNTY FILE</span><span>PUBLIC RECORD</span></div></div>;
 }
 
 export function PageFrame({ children, kicker, title, intro }: { children: React.ReactNode; kicker: string; title: string; intro?: string }) {
