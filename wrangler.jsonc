@@ -1,6 +1,12 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "acticms-srp1980",
-  "compatibility_date": "2026-08-19",
-  "pages_build_output_dir": "./dist/public"
+  "compatibility_date": "2026-08-15",
+  "assets": {
+    "directory": "./dist/public",
+    "not_found_handling": "single-page-application"
+  },
+  "observability": {
+    "enabled": true
+  }
 }
