@@ -29,7 +29,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
     <footer className="footer redesign-footer" aria-label="Site information">
       <div className="footer-inner">
         <div><div className="footer-brand"><img src="/springfield-logo.webp" alt="" className="footer-logo" /><div className="footer-title">Springfield 1980 Roleplay</div></div><p>A Roblox ERLC roleplay community built around 1980s scenes, regular sessions, and people who want something to do when they join.</p></div>
-        <div className="footer-attribution"><a href="https://acticms.pages.dev/" target="_blank" rel="noreferrer" aria-label="Made with ActiCMS"><span>Made with:</span><img src="/manus-storage/acticms-logo_a9afe01b.png" alt="ActiCMS" className="acticms-footer-logo" /></a></div><div className="footer-meta"><span>ROBLOX ERLC</span><span>SPRINGFIELD 1980</span><span><ShieldCheck size={13} /> COMMUNITY SITE</span></div>
+        <div className="footer-attribution"><a href="https://acticms.pages.dev/" target="_blank" rel="noreferrer" aria-label="Made with ActiCMS"><span>Made with:</span><img src="/logo.png" alt="ActiCMS" className="acticms-footer-logo" /></a></div><div className="footer-meta"><span>ROBLOX ERLC</span><span>SPRINGFIELD 1980</span><span><ShieldCheck size={13} /> COMMUNITY SITE</span></div>
       </div>
       <div className="footer-bottom">© 1980's Springfield RP · A community website for a Roblox experience. Not affiliated with Roblox Corporation.</div>
     </footer>
