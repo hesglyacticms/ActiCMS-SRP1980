@@ -80,9 +80,13 @@ a { color:inherit; text-decoration:none; }
 .redesign-footer .footer-inner { max-width:1315px; padding:55px 32px 38px; }
 .redesign-footer .footer-brand { gap:12px; }
 .footer-logo { width:44px; height:44px; object-fit:contain; }
-.redesign-footer .footer-title { color:#111116; font:700 20px var(--sans); }
+.redesign-footer .footer-title { color:#111116; font-family:var(--sans) !important; font-size:20px; font-weight:700; line-height:1.2; }
 .redesign-footer p { max-width:440px; color:#55555d; }
 .redesign-footer .footer-meta { color:var(--reference-purple); }
+.redesign-footer .footer-attribution { display:flex; align-items:center; justify-content:center; min-width:240px; }
+.redesign-footer .footer-attribution a { display:inline-flex; align-items:center; gap:10px; color:#111116; font-family:'Alan Sans',var(--sans) !important; font-size:15px; font-weight:700; text-decoration:none; }
+.redesign-footer .footer-attribution a:hover { color:var(--reference-purple); }
+.redesign-footer .acticms-footer-logo { display:block; width:170px; height:auto; filter:invert(1); }
 .redesign-footer .footer-bottom { color:#77777e; border-top:1px solid #ddd; }
 .page-frame .section-heading h1 { color:var(--reference-purple); }
 @media (max-width:900px) {
@@ -105,6 +109,9 @@ a { color:inherit; text-decoration:none; }
 }
 @media (max-width:520px) {
   .redesign-brand-name { font-size:17px; }
+  .redesign-footer .footer-attribution { justify-content:flex-start; min-width:0; }
+  .redesign-footer .footer-attribution a { flex-wrap:wrap; gap:7px; }
+  .redesign-footer .acticms-footer-logo { width:150px; }
   .reference-hero { padding:38px 18px 48px; }
   .reference-hero-media,.reference-hero-media img { min-height:250px; height:250px; }
   .reference-hero-media span { right:14px; bottom:14px; font-size:22px; }
